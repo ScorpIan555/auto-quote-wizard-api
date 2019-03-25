@@ -30,7 +30,6 @@ provider:
   name: aws
   runtime: nodejs8.10
   stage: dev
-  # @TODO add => ${opt:stage, self:custom.environment.region}
   region: us-east-1
 
   # These environment variables are made available to our functions
@@ -38,8 +37,8 @@ provider:
   environment:
     tableName: ${self:custom.tableName}
     stripeSecretKey: ${self:custom.environment.stripeSecretKey}
-    facebookAppId: ${self:custom.environment.facebookAppId}
-    googleClientId: ${self:custom.environment.googleClientId}
+    #facebookAppId: ${self:custom.environment.facebookAppId}
+    #googleClientId: ${self:custom.environment.googleClientId}
 
   # 'iamRoleStatement' defines the permission policy for the Lambda function.
   # In this case Lambda functions are granted with permissions to access DynamoDB.
