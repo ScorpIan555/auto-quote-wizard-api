@@ -4,7 +4,7 @@ Resources:
     Type: AWS::Cognito::IdentityPool
     Properties:
       # Generate a name based on the stage
-      IdentityPoolName: ${self:custom.stage}IdentityPool
+      IdentityPoolName: ${self:custom.stage}InsHerbQuotesIdentityPoolTEST
       # Don't allow unathenticated users
       AllowUnauthenticatedIdentities: false
       # Link to our User Pool
@@ -13,6 +13,10 @@ Resources:
             Ref: CognitoUserPoolClient
           ProviderName:
             Fn::GetAtt: [ "CognitoUserPool", "ProviderName" ]
+      # Link to 3rd-party login apps
+      # SupportedLoginProviders:
+        #graph.facebook.com: ${self:custom.environment.facebookAppId}
+        #accounts.google.com: ${self:custom.environment.googleClientId}
 
   # IAM roles
   CognitoIdentityPoolRoles:
@@ -90,3 +94,9 @@ Outputs:
   IdentityPoolId:
     Value:
       Ref: CognitoIdentityPool
+  #FacebookAppId:
+    #Description: "Facebook App Id"
+    #Value: ${custom.environment.facebookAppId}
+  #GoogleAppId:
+    #Description: "Google App Id"
+    #Value: ${custom.environment.googleClientId}
