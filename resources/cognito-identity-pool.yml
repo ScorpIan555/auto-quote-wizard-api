@@ -94,3 +94,9 @@ Outputs:
   IdentityPoolId:
     Value:
       Ref: CognitoIdentityPool
+  # FacebookAppId:
+  #   Description: "Facebook App Id"
+  #   Value: ${self:custom.facebookAppId}
+  # GoogleAppId:
+  #   Description: "Google App Id"
+  #   Value: ${self:custom.googleClientId}
