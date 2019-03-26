@@ -132,6 +132,7 @@ functions:
           cors: true
           authorizer: aws_iam
 
+functions:
   # Defines an HTTP API endpoint that calls the main function in create.js
   # - path: url path is /users
   # - method: POST request
