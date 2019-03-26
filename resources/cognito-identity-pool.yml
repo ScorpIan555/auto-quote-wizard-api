@@ -14,9 +14,9 @@ Resources:
           ProviderName:
             Fn::GetAtt: [ "CognitoUserPool", "ProviderName" ]
       # Link to 3rd-party login apps
-      # SupportedLoginProviders:
-        #graph.facebook.com: ${self:custom.environment.facebookAppId}
-        #accounts.google.com: ${self:custom.environment.googleClientId}
+      SupportedLoginProviders:
+        graph.facebook.com: ${self:custom.facebookAppId}
+        accounts.google.com: ${self:custom.googleClientId}
 
   # IAM roles
   CognitoIdentityPoolRoles:
@@ -94,9 +94,9 @@ Outputs:
   IdentityPoolId:
     Value:
       Ref: CognitoIdentityPool
-  #FacebookAppId:
-    #Description: "Facebook App Id"
-    #Value: ${custom.environment.facebookAppId}
-  #GoogleAppId:
-    #Description: "Google App Id"
-    #Value: ${custom.environment.googleClientId}
+  FacebookAppId:
+    Description: "Facebook App Id"
+    Value: ${custom.facebookAppId}
+  GoogleAppId:
+    Description: "Google App Id"
+    Value: ${custom.googleClientId}
